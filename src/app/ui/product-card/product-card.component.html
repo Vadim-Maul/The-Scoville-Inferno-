@@ -1,0 +1,25 @@
+<div
+  class="product-card bg-text-light rounded-2xl border grid gap-4 border-grey-default p-4 cursor-pointer"
+>
+  <div class="product-image">
+    <img
+      class="h-64 w-full object-cover"
+      ngSrc="/products/p-1.jpg"
+      width="272"
+      height="247"
+      priority
+      alt="Sample Product"
+    />
+  </div>
+  <div class="product-details grid gap-2">
+    <h2 class="product-title text-main-dark font-normal">
+      Ghost Pepper Powder
+    </h2>
+    <div class="product-price text-lg font-semibold text-main-dark">
+      {{ 6.66 | currency }}
+    </div>
+    <p class="product-description text-text-grey text-sm">
+      A lingering heat that will haunt you
+    </p>
+  </div>
+</div>
