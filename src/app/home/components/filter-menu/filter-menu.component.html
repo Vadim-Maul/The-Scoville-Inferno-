@@ -1,0 +1,65 @@
+<div
+  class="bg-text-light rounded-2xl border grid gap-6 border-grey-default p-4"
+>
+  @if (this.products().length > 0 || this.agony().length > 0) {
+    <div class="keywords">
+      <h3 class="font-bold text-main-dark">Keywords</h3>
+      <ul class="flex flex-wrap gap-2 pt-2">
+        @for (filter of this.products(); track filter) {
+          <li class="bg-[#FF9C95] text-main-dark p-2 rounded-2xl">
+            {{ filter | camelCaseToSpaces | lowercase }}
+          </li>
+        }
+        @for (filter of this.agony(); track filter) {
+          <li class="bg-[#FF9C95] text-main-dark p-2 rounded-2xl">
+            {{ filter | camelCaseToSpaces | lowercase }}
+          </li>
+        }
+      </ul>
+    </div>
+  }
+  <form class="grid gap-6" [formGroup]="filterForm">
+    <fieldset formGroupName="productTypes" class="grid gap-3">
+      <legend class="mb-3">Product Type</legend>
+      <label
+        ><input type="checkbox" formControlName="wholeChilies" /> Whole
+        Chilies</label
+      >
+      <label
+        ><input type="checkbox" formControlName="groundSpices" /> Ground
+        Spices</label
+      >
+      <label
+        ><input type="checkbox" formControlName="scorchingSauces" /> Scorching
+        Sauces</label
+      >
+      <label
+        ><input type="checkbox" formControlName="sadisticBlends" /> Sadistic
+        Blends</label
+      >
+      <label
+        ><input type="checkbox" formControlName="infernalExtracts" /> Infernal
+        Extracts</label
+      >
+    </fieldset>
+
+    <fieldset formGroupName="agonyLevels" class="grid gap-3">
+      <legend class="mb-3">Filter by Agony Level</legend>
+      <label
+        ><input type="checkbox" formControlName="warmingUp" /> Warming Up</label
+      >
+      <label
+        ><input type="checkbox" formControlName="seriousHeat" /> Serious
+        Heat</label
+      >
+      <label
+        ><input type="checkbox" formControlName="ringOfFire" /> Ring of
+        Fire</label
+      >
+      <label
+        ><input type="checkbox" formControlName="legalWeapon" /> Legal
+        Weapon</label
+      >
+    </fieldset>
+  </form>
+</div>

@@ -33,16 +33,18 @@
       </li>
     </ul>
     <div class="action-buttons">
-      <button
+      <a
+        [routerLink]="['account', 'login']"
         class="rounded-2xl border cursor-pointer border-dark-grey bg-grey-default px-5 py-2 mr-4"
       >
         Sign In
-      </button>
-      <button
+      </a>
+      <a
+        [routerLink]="['account', 'register']"
         class="rounded-2xl border text-white cursor-pointer border-dark-grey bg-main-dark px-5 py-2 mr-4"
       >
         Register
-      </button>
+      </a>
     </div>
   </nav>
 </header>
