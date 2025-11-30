@@ -1,0 +1,18 @@
+<div class="container mx-auto">
+  <div class="cover">
+    <img
+      class="h-[400px] w-full object-cover"
+      ngSrc="/main-banner.jpg"
+      width="1536"
+      height="640"
+      alt="main cover"
+      priority
+    />
+  </div>
+  <div class="grid gap-8 grid-cols-(--home-grid-template-columns) mt-8">
+    <aside>
+      <app-filter-menu />
+    </aside>
+    <app-product-card-list />
+  </div>
+</div>
