@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { registerAction } from '@app/account/store/actions/register.action';
 import { accountFeature } from '@app/account/store/reducers';
+import { AccountService } from '@app/account/services/account.service';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ import { accountFeature } from '@app/account/store/reducers';
 })
 export class RegisterComponent implements OnInit {
   store = inject(Store);
+  accountService = inject(AccountService);
   registerForm!: FormGroup;
   isSubmitting = this.store.selectSignal(accountFeature.selectIsSubmitting);
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class RegisterComponent implements OnInit {
   initializeForm(): void {
     this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -37,6 +40,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
       this.store.dispatch(registerAction(this.registerForm.value));
+      this.accountService.register(this.registerForm.value).subscribe();
     }
   }
 }
