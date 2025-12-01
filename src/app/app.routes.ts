@@ -1,9 +1,13 @@
 import { Routes } from '@angular/router';
+import { provideState } from '@ngrx/store';
+
 import { MainLayoutComponent } from '@layout/main-layout/main-layout.component';
+import { accountFeature } from '@app/account/store/reducers';
 
 export const routes: Routes = [
   {
     path: '',
+    providers: [provideState(accountFeature)],
     component: MainLayoutComponent,
     children: [
       {
