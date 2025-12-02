@@ -13,7 +13,7 @@ export class AccountService {
   httpClient = inject(HttpClient);
 
   register(data: IRegisterRequest): Observable<IRegisterResponse> {
-    const url = environment.apiUrl + '/users';
+    const url = environment.apiUrl + '/users/register';
     return this.httpClient.post<IRegisterResponse>(url, data).pipe(
       map((res: IRegisterResponse): IRegisterResponse => {
         return res;

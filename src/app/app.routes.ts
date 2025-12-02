@@ -7,8 +7,8 @@ import { accountFeature } from '@app/account/store/reducers';
 export const routes: Routes = [
   {
     path: '',
-    providers: [provideState(accountFeature)],
     component: MainLayoutComponent,
+    providers: [provideState(accountFeature)],
     children: [
       {
         path: '',

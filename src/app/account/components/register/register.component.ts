@@ -9,6 +9,7 @@ import {
 import { registerAction } from '@app/account/store/actions/register.action';
 import { accountFeature } from '@app/account/store/reducers';
 import { AccountService } from '@app/account/services/account.service';
+import { IRegisterRequest } from '@app/account/types/registerRequest.interface';
 
 @Component({
   selector: 'app-register',
@@ -37,10 +38,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      this.store.dispatch(registerAction(this.registerForm.value));
-      this.accountService.register(this.registerForm.value).subscribe();
-    }
+    console.log(this.registerForm.value);
+    const request: IRegisterRequest = this.registerForm.value;
+    this.store.dispatch(registerAction({ request }));
   }
 }
